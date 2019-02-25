@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>My Movies</h1>
+<h2>
+    {% block subtitle %}
+    Movie info
+    {% endblock %}
+</h2>
+
+{% block content %}
+
+    {% for entry in movie_list %}
+    <p>{{entry.movie_title}}
+        <a href="{% url 'movie_details' entry.movie_id %}">Details</a>
+        <a href="{% url 'movie_synopsis' entry.movie_id %}">Synopsis</a>
+    </p>
+    {% endfor %}
+{% endblock %}
+
+</body>
+</html>
